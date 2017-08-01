@@ -63,15 +63,7 @@ def get_all_tweets(screen_name):
     oldest = alltweets[-1].id - 1
     
     print "...%s tweets downloaded..." % (len(alltweets))
-  
-  #transform the tweepy tweets into a 2D array to create the csv file
-  # outtweets = [[tweet.id_str, tweet.created_at, tweet.text.encode("utf-8")] for tweet in alltweets]
-  
-  # #write the csv  
-  # with open('%s_tweets.csv' % screen_name, 'wb') as f:
-  #   writer = csv.writer(f)
-  #   writer.writerow(["id","created","text"])
-  #   writer.writerows(outtweets)
+ 
 
   #writing json data into a dictionary in a for loop, appending alltweets to outweets. 
   outtweets = {} 
