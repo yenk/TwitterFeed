@@ -3,7 +3,7 @@ This script will first load latest 100 twitter feeds from today to last loaded d
 
 Then will continue loading from last loaded date to next oldest date in a while loop until it's completely zero'd out. 
 
-Then gets output into a json data type. 
+Then outputs it as json via a for loop. 
 
 '''
 
