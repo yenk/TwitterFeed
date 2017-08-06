@@ -7,7 +7,7 @@ Then outputs it as json via a for loop.
 
 '''
 
-import tweepy #https://github.com/tweepy/tweepy
+import tweepy 
 # import csv
 import json
 
