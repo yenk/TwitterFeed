@@ -152,7 +152,7 @@ def histogram_plot(dayname): #remember to call parameter name, easier to referen
   plt.bar(x, y, align='center', tick_label=day_name, color='darkmagenta')
   plt.xlabel('tweets per day', fontdict=font)
   plt.ylabel('count of tweets', fontdict=font)
-  plt.title('@realDonalTrump total daily tweets: Jun-Aug', fontdict=font)
+  plt.title('@realDonalTrump total daily tweets: since june 2016', fontdict=font)
   # plt.subplots_adjust(top=.2, bottom=0.2) #adjust x/y labeling
   plt.show()
 
