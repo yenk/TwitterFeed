@@ -2,14 +2,13 @@
 TWEET ANALYSIS
 '''''''''''''''''''''
 
-
-#read json data from file, tweetdump.py into the same dictionary 
 import datetime 
 import json
 import matplotlib.pyplot as plt
+# import numpy as np 
 
 
-#read json dataset
+#read json data from file, tweetdump.py into the same dictionary 
 with open('realDonaldTrump_tweets.json') as json_intweets_file: 
 #loads into a dictionary
   data_loaded = json.load(json_intweets_file)
@@ -109,10 +108,11 @@ def daycount(stupidtweets):
 #output: {0: 470, 1: 523, 2: 494, 3: 521, 4: 456, 5: 404, 6: 374}
 
 
-#create a function to output name of the day, e.g. monday = 1, output monday 
+#create a function to output name of the day, e.g. monday = 1, output monday
+day_name = ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday']
+
 def dayname(daycount): 
   #create name of day, to be referenced in dictionary via key variable, must match index of weekday
-  day_name = ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday']
   dict_day_name = {}
   for key, value in daycount.items(): 
     # print day_name[key]
@@ -128,28 +128,33 @@ def dayname(daycount):
 TWEET PLOTTING
 '''''''''''''''''''''
 
-#create histogram of the daycount in matplot  
+#create histogram of the dayname dataset 
 
 def histogram_plot(dayname): #remember to call parameter name, easier to reference previous method after you defined it
   #use bar chart function instead of histogram 
-  centers = range(len(dayname))
+
+  x = range(len(dayname))
+  # y = dayname.values() 
+
+  #creating a list comprehension to preserve value of element of y label
+
+  #from right, in for loop, for every "day" variable, loop through day_name, and look up in dayname dict
+  #for value that matches
+  y = [dayname[day] for day in day_name]
+   
 
   font = {'family': 'serif',
-        'color':  'darkred',
+        'color':  'red',
         'weight': 'normal',
         'size': 12,
         }
-
-  plt.bar(centers, dayname.values(), align='center', tick_label=dayname.keys())
-  plt.xlim([0, 20])
-  # ax.set_title('total count of tweets per day') 
-  # ax.set_xticks(ind_width) 
-  # ax.set_xticklabels(labels_lst, rotation='vertical', fontsize=6)
+  #dayname.values is xlabel 
+  plt.bar(x, y, align='center', tick_label=day_name, color='darkmagenta')
   plt.xlabel('tweets per day', fontdict=font)
   plt.ylabel('count of tweets', fontdict=font)
+  plt.title('@realDonalTrump total daily tweets: Jun-Aug', fontdict=font)
   # plt.subplots_adjust(top=.2, bottom=0.2) #adjust x/y labeling
   plt.show()
-
 
 histogram_plot(dayname(daycount(stupidtweets)))
 
